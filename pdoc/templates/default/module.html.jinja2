@@ -256,7 +256,6 @@ See https://pdoc.dev/docs/pdoc/render_helpers.html#DefaultMacroExtension for an 
 {# fmt: off #}
 {% defaultmacro inherited(cls) %}
     {% for base, members in cls.inherited_members.items() %}
-        {% set m = None %}{# workaround for https://github.com/pallets/jinja/issues/1427 #}
         {% set member_html %}
             {% for m in members if is_public(m) | trim %}
                 <dd id="{{ m.qualname }}" class="{{ m.kind }}">
